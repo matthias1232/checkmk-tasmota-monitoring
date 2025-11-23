@@ -68,9 +68,10 @@ The following sensors and metrics are currently supported:
 *   **Network:** The Checkmk server must be able to reach the Tasmota device via HTTP (Port 80).
 *   **Tasmota:** The device must be flashed with Tasmota firmware and support JSON status queries.
 
-## Screenshots
 
-Gui:
+
+## Screenshots Gui
+
 <img width="1158" height="244" alt="image" src="https://github.com/user-attachments/assets/479ebb82-99f0-468c-be3a-3a1814330469" />
 <img width="1385" height="295" alt="image" src="https://github.com/user-attachments/assets/82fb58a4-d470-48fb-878b-adec2910bd96" />
 <img width="597" height="156" alt="image" src="https://github.com/user-attachments/assets/ccfc3287-8ae9-479c-9110-4920f778f5e2" />
@@ -79,7 +80,8 @@ Gui:
 <img width="1158" height="263" alt="image" src="https://github.com/user-attachments/assets/c37decbb-82f6-45b2-bf53-898908eae55c" />
 <img width="1037" height="319" alt="image" src="https://github.com/user-attachments/assets/d1a71472-c6dc-4303-a811-1f0e266efa88" />
 
-Config:
+## Screenshots Wato Config
+
 <img width="821" height="458" alt="image" src="https://github.com/user-attachments/assets/72fc9cdb-1ed8-4d2c-8479-3aa48ff956fc" />
 <img width="878" height="562" alt="image" src="https://github.com/user-attachments/assets/1ca208f0-373b-499e-b4b4-566a4795e0fb" />
 <img width="843" height="545" alt="image" src="https://github.com/user-attachments/assets/01f3cb06-0276-4b02-b333-bec3b3431585" />
