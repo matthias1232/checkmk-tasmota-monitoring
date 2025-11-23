@@ -55,9 +55,8 @@ The following sensors and metrics are currently supported:
     *   Under **Checkmk Agent / API Integrations**, select **"Configured API integrations, no Checkmk agent"**.
 
 2.  **Create Rule:**
-    *   Go to **Setup > Agents > VM, Cloud, Container > Tasmota Special Agent**.
+    *   Go to **Setup > Agents > Other integrations > Tasmota Special Agent**.
     *   Create a new rule.
-    *   **Hostname:** Enter the IP address or DNS name of the Tasmota device.
     *   **Password:** (Optional) If you have set a web password on the Tasmota device, enter it here.
 
 3.  **Service Discovery:**
@@ -65,6 +64,6 @@ The following sensors and metrics are currently supported:
 
 ## Requirements
 
-*   **Checkmk Version:** 2.x (Tested with Checkmk 2.3)
+*   **Checkmk Version:** 2.4 (Tested with Checkmk 2.4)
 *   **Network:** The Checkmk server must be able to reach the Tasmota device via HTTP (Port 80).
 *   **Tasmota:** The device must be flashed with Tasmota firmware and support JSON status queries.
