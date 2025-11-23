@@ -1,4 +1,5 @@
 # Checkmk Tasmota Monitoring
+<img width="1158" height="263" alt="image" src="https://github.com/user-attachments/assets/4035d1f2-2c66-43d4-b79b-7bef55f720d7" />
 
 This plugin enables comprehensive monitoring of Tasmota devices in Checkmk. It uses a special agent to query status information and sensor data directly from the device via the HTTP interface.
 
