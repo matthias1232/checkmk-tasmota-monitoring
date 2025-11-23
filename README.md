@@ -46,7 +46,7 @@ The following sensors and metrics are currently supported:
 2.  Install the package on your Checkmk instance:
     ```bash
     mkp add tasmota-1.0.0.mkp
-    mkp enable tasmota-1.0.0.mkp
+    mkp enable tasmota 1.0.0
     ```
     *(Note: The filename may vary depending on the version)*
 
