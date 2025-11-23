@@ -50,7 +50,7 @@ The following sensors and metrics are currently supported:
     ```
     *(Note: The filename may vary depending on the version)*
 
-    If you have CheckMK Enterprise you can also you the Extension Manager in the Web Gui to install packages.
+    If you have CheckMK Enterprise you can also use the Extension Manager in the Web Gui to install packages.
 
 ## Configuration
 
