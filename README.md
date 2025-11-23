@@ -45,9 +45,12 @@ The following sensors and metrics are currently supported:
 1.  Package the plugin as MKP or download the ready-made file.
 2.  Install the package on your Checkmk instance:
     ```bash
-    mkp install tasmota_monitoring-1.0.mkp
+    mkp add tasmota-1.0.0.mkp
+    mkp enable tasmota-1.0.0.mkp
     ```
     *(Note: The filename may vary depending on the version)*
+
+    If you have CheckMK Enterprise you can also you the Extension Manager in the Web Gui to install packages.
 
 ## Configuration
 
