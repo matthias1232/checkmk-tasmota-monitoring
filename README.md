@@ -27,13 +27,17 @@ For devices with energy monitoring capabilities (e.g., Gosund SP111, Sonoff POW)
 *   Monitors the current status of the relay (ON/OFF).
 *   **Configurable Expected State:** You can define whether the device should be permanently switched on (e.g., for fridges or servers) and trigger an alarm if it is switched off.
 
-### 4. Environmental Sensors
-Support for connected sensors (e.g., via I2C):
-*   **SI7021 & SHT3x:**
-    *   Temperature (°C)
-    *   Humidity (% RH)
-    *   Dew Point (°C)
-*   Uses standard Checkmk rulesets for temperature and humidity (allowing configurable thresholds).
+### 4. Supported Sensors
+
+The following sensors and metrics are currently supported:
+
+| Sensor Name | Monitored Metrics |
+| :--- | :--- |
+| **SI7021** | Temperature (°C), Humidity (% RH), Dew Point (°C) |
+| **SHT3x** | Temperature (°C), Humidity (% RH), Dew Point (°C) |
+| **Energy Monitor** | Power (W), Current (A), Energy Today (kWh), Energy Yesterday (kWh), Energy Total (kWh), Apparent Power (VA), Reactive Power (VAr), Power Factor |
+
+*Note: Standard Checkmk rulesets for temperature and humidity are used, allowing for configurable thresholds.*
 
 ## Installation
 
