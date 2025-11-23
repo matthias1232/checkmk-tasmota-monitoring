@@ -1,0 +1,94 @@
+#!/usr/bin/env python3
+
+
+#This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the #License, or (at your option) any later version.
+#
+#This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU #General Public License for more details.
+#
+#You should have received a copy of the GNU General Public License along with this program. If not, see <https://www.gnu.org/licenses/>.
+#
+# Written by Matthias Binder, November 2025
+# https://github.com/matthias1232
+#
+# License: GNU General Public License
+
+
+from multiprocessing.util import debug
+import subprocess
+import os
+import re
+from sys import prefix
+import time
+from datetime import datetime
+import getpass
+from pathlib import Path
+sitename=getpass.getuser()
+import pprint
+import requests
+import json
+import time
+import argparse
+import psutil
+from concurrent.futures import ThreadPoolExecutor, as_completed
+import requests
+import json
+import os
+from urllib3.exceptions import InsecureRequestWarning
+import shutil
+
+from cmk.utils import password_store
+
+
+print("<<<check_mk>>>")
+print("Version: Tasmota Special Agent 1.0")
+print("AgentOS: linux")
+
+
+parser = argparse.ArgumentParser(
+    description="Tasmota Special Agent",
+    formatter_class=argparse.RawTextHelpFormatter,
+)
+#########Arguments from CheckMK#####
+parser.add_argument('-H', '--hostname', required=True, help="Tasmota Hostname",)
+parser.add_argument('-password', '--password', required=False, help="Tasmota Password",)
+
+args = parser.parse_args()
+
+##password translation##
+if args.password:
+    pw_id1, pw_path1 = args.password.split(":")
+    # Create unencrypted password variables
+    args.password = password_store.lookup(Path(pw_path1), pw_id1)
+else:
+    args.password = None
+
+# Fetch data from Tasmota device
+url = f"http://{args.hostname}/cm?cmnd=Status%200"
+
+for attempt in range(3):
+    try:
+        if args.password:
+            response = requests.get(url, auth=('admin', args.password), timeout=10)
+        else:
+            response = requests.get(url, timeout=10)
+
+        response.raise_for_status()  # Raise exception for HTTP errors
+
+        # Try to parse JSON
+        try:
+            tasmota_data = response.json()
+            print("<<<tasmota_status:sep(0)>>>")
+            print(json.dumps(tasmota_data, separators=(',', ':'), ensure_ascii=False))
+            break # Success, break out of the retry loop
+        except json.JSONDecodeError as e:
+            print(f"ERROR: Response is not valid JSON: {e}")
+            print(f"Response content: {response.text}")
+            exit(1)
+    except requests.exceptions.RequestException as e:
+        if attempt < 2:  # If not the last attempt
+            print(f"WARNING: Failed to fetch data from Tasmota device (attempt {attempt + 1}/3): {e}. Retrying in 5 seconds...")
+            time.sleep(5)
+        else:
+            print(f"ERROR: Failed to fetch data from Tasmota device after 3 attempts: {e}")
+            exit(1)
+        
