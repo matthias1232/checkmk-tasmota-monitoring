@@ -1,77 +1,8 @@
 # Checkmk Tasmota Monitoring
 This plugin enables comprehensive monitoring of Tasmota devices in Checkmk. It uses a special agent to query status information and sensor data directly from the device via the HTTP interface.
 
-<img width="1158" height="263" alt="image" src="https://github.com/user-attachments/assets/4035d1f2-2c66-43d4-b79b-7bef55f720d7" />
-
-## Features
-
-The plugin offers a wide range of monitoring options for your Tasmota devices:
-
-### 1. Firmware & System
-*   **Firmware Version:** Monitors the installed Tasmota version.
-*   **Update Check:** Automatically compares the installed version with the latest release on GitHub and warns if the firmware is outdated (configurable).
-*   **Build Info:** Displays the build date and OTA URL.
-*   **Uptime:** Monitors the device uptime.
-
-### 2. Power Monitoring
-For devices with energy monitoring capabilities (e.g., Gosund SP111, Sonoff POW):
-*   **Current Power:** Watt (W).
-*   **Voltage & Current:** Volt (V) and Ampere (A).
-*   **Energy Consumption:**
-    *   Today (kWh)
-    *   Yesterday (kWh)
-    *   Total (kWh)
-*   **Additional Metrics:** Apparent Power (VA), Reactive Power (VAr), and Power Factor.
-*   **Thresholds:** Warning and critical thresholds for power are configurable.
-
-### 3. Power State
-*   Monitors the current status of the relay (ON/OFF).
-*   **Configurable Expected State:** You can define whether the device should be permanently switched on (e.g., for fridges or servers) and trigger an alarm if it is switched off.
-
-### 4. Supported Sensors
-
-The following sensors and metrics are currently supported:
-
-| Sensor Name | Monitored Metrics |
-| :--- | :--- |
-| **SI7021** | Temperature (°C), Humidity (% RH), Dew Point (°C) |
-| **SHT3x** | Temperature (°C), Humidity (% RH), Dew Point (°C) |
-| **Energy Monitor** | Power (W), Current (A), Energy Today (kWh), Energy Yesterday (kWh), Energy Total (kWh), Apparent Power (VA), Reactive Power (VAr), Power Factor |
-
-*Note: Standard Checkmk rulesets for temperature and humidity are used, allowing for configurable thresholds.*
-
-## Installation
-
-1.  Package the plugin as MKP or download the ready-made file.
-2.  Install the package on your Checkmk instance:
-    ```bash
-    mkp add tasmota-1.0.0.mkp
-    mkp enable tasmota 1.0.0
-    ```
-    *(Note: The filename may vary depending on the version)*
-
-    If you have CheckMK Enterprise you can also use the Extension Manager in the Web Gui to install packages.
-
-## Configuration
-
-1.  **Create Host:**
-    *   Create a new host in Checkmk for the Tasmota device.
-    *   Under **Checkmk Agent / API Integrations**, select **"Configured API integrations, no Checkmk agent"**.
-
-2.  **Create Rule:**
-    *   Go to **Setup > Agents > Other integrations > Tasmota Special Agent**.
-    *   Create a new rule.
-    *   **Password:** (Optional) If you have set a web password on the Tasmota device, enter it here.
-
-3.  **Service Discovery:**
-    *   Perform a service discovery for the host. The available services (Firmware, Wattage, Sensors, etc.) should now be detected automatically.
-
-## Requirements
-
-*   **Checkmk Version:** 2.4 (Tested with Checkmk 2.4)
-*   **Network:** The Checkmk server must be able to reach the Tasmota device via HTTP (Port 80).
-*   **Tasmota:** The device must be flashed with Tasmota firmware and support JSON status queries.
-
+Documentation and Readme:
+https://forum.checkmk.com/t/tasmota-iot-monitoring-with-checkmk-temperature-humidity-power-metering-additional-i2c-sensors-etc
 
 
 ## Screenshots Gui
