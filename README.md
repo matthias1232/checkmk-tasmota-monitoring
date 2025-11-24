@@ -2,7 +2,7 @@
 This plugin enables comprehensive monitoring of Tasmota devices in Checkmk. It uses a special agent to query status information and sensor data directly from the device via the HTTP interface.
 
 Documentation and Readme:
-https://forum.checkmk.com/t/tasmota-iot-monitoring-with-checkmk-temperature-humidity-power-metering-additional-i2c-sensors-etc
+https://forum.checkmk.com/t/tasmota-open-source-iot-monitoring-with-checkmk-temperature-humidity-power-metering-additional-i2c-sensors-etc/
 
 
 ## Screenshots Gui
