@@ -31,10 +31,11 @@ def _agent_tasmota_arguments(
 ) -> Iterable[SpecialAgentCommand]:
 
 
-    args = []
-    
-    args += ["-H", hostconfig.name]
-    args += ["-password", params['password']]
+    args = ["-H", hostconfig.name]
+
+    password = params.get("password")
+    if password is not None:
+        args += ["-password", password]
 
     yield SpecialAgentCommand(command_arguments=args)
 
